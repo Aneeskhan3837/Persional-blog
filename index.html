@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anees ur Rahman | Personal Blog</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+        background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+        color: #232946;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: #fff;
+        box-shadow: 0 2px 16px rgba(44, 62, 80, 0.06);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 2px solid #e0e7ff;
+      }
+      .navbar__logo {
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #6246ea;
+        letter-spacing: 1px;
+      }
+      .navbar__links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar__links li a {
+        text-decoration: none;
+        color: #232946;
+        transition: color 0.2s, border-bottom 0.2s;
+        font-weight: 500;
+        padding-bottom: 2px;
+        border-bottom: 2px solid transparent;
+      }
+      .navbar__links li a:hover {
+        color: #6246ea;
+        border-bottom: 2px solid #6246ea;
+      }
+      .container {
+        max-width: 950px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 32px rgba(44, 62, 80, 0.1);
+        padding: 2.5rem 2rem;
+      }
+      .home__intro {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
+      }
+      .profile-pic {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #6246ea;
+        box-shadow: 0 4px 24px rgba(98, 70, 234, 0.1);
+        background: #e0e7ff;
+        display: block;
+      }
+      .home__bio h1 {
+        margin: 0 0 0.5rem 0;
+        font-size: 2.2rem;
+        color: #232946;
+      }
+      .home__bio p {
+        margin: 0 0 1rem 0;
+        color: #4f5d75;
+        font-size: 1.1rem;
+      }
+      .home__socials {
+        display: flex;
+        gap: 1.2rem;
+        margin-top: 0.5rem;
+      }
+      .home__socials a {
+        color: #6246ea;
+        background: #e0e7ff;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: 0 2px 8px rgba(98, 70, 234, 0.06);
+      }
+      .home__socials a:hover {
+        background: #6246ea;
+        color: #fff;
+      }
+      .blog {
+        margin-bottom: 2.5rem;
+      }
+      .blog h2 {
+        color: #6246ea;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        letter-spacing: 1px;
+      }
+      .blog__posts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      .blog__post {
+        background: linear-gradient(135deg, #e0e7ff 0%, #fff 100%);
+        border-radius: 16px;
+        box-shadow: 0 2px 16px rgba(44, 62, 80, 0.08);
+        padding: 1.2rem 1rem 1.5rem 1rem;
+        width: 100%;
+        max-width: 400px;
+        flex: 1 1 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1.5px solid #e0e7ff;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+      .blog__post:hover {
+        box-shadow: 0 8px 32px rgba(98, 70, 234, 0.13);
+        transform: translateY(-4px) scale(1.02);
+      }
+      .blog__post img {
+        width: 80%;
+        max-width: 260px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .blog__post h3 {
+        margin: 0.5rem 0 0.5rem 0;
+        color: #232946;
+        font-size: 1.2rem;
+      }
+      .blog__post p {
+        color: #4f5d75;
+        margin: 0;
+        font-size: 1rem;
+      }
+      .contact h2 {
+        color: #6246ea;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        letter-spacing: 1px;
+      }
+      .contact__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 400px;
+        margin: 0 auto;
+        background: #e0e7ff;
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(98, 70, 234, 0.06);
+      }
+      .contact__form input,
+      .contact__form textarea {
+        padding: 0.75rem 1rem;
+        border: 1px solid #b8c1ec;
+        border-radius: 8px;
+        font-size: 1rem;
+        background: #fff;
+        resize: none;
+        color: #232946;
+      }
+      .contact__form button {
+        background: linear-gradient(90deg, #6246ea 0%, #b8c1ec 100%);
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(98, 70, 234, 0.08);
+      }
+      .contact__form button:hover {
+        background: linear-gradient(90deg, #b8c1ec 0%, #6246ea 100%);
+      }
+      .contact__thankyou {
+        color: #28a745;
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 2rem;
+      }
+      @media (max-width: 700px) {
+        .container {
+          padding: 1rem 0.5rem;
+        }
+        .home__intro {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+        .blog__posts {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__logo">Anees ur Rahman</div>
+      <ul class="navbar__links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <section class="home__intro" id="home">
+        <img src="profile.jpg" alt="Anees ur Rahman" class="profile-pic" />
+        <div class="home__bio">
+          <h1>Anees ur Rahman</h1>
+          <p>
+            Hi, I'm Anees ur Rahman — a Software Engineering student at Islamia
+            College Peshawar.<br />
+            I'm currently diving into the world of web development and building
+            my skills step by step.<br />
+            Outside of coding, I'm passionate about food and love exploring new
+            places whenever I can.
+          </p>
+          <div class="home__socials">
+            <a
+              href="https://www.instagram.com/khan_anees313?igsh=ZGUzMzM3NWJiOQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              >Instagram</a
+            >
+            <a
+              href="https://www.facebook.com/AneesKhan3837?mibextid=kFxxJD"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Facebook</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="blog" id="blog">
+        <h2>Blog</h2>
+        <div class="blog__posts">
+          <div class="blog__post">
+            <img
+              src="post1.jpg"
+              alt="5 Simple Habits to Improve Your Daily Life"
+            />
+            <h3>5 Simple Habits to Improve Your Daily Life</h3>
+            <p>
+              Start your day with purpose and end it with peace.<br />
+              Discover easy habits that bring big changes over time.<br />
+              Perfect for anyone looking to live more mindfully.
+            </p>
+          </div>
+          <div class="blog__post">
+            <img
+              src="post2.jpg"
+              alt="Why Taking Breaks Makes You More Productive"
+            />
+            <h3>Why Taking Breaks Makes You More Productive</h3>
+            <p>
+              Working non-stop can actually slow you down.<br />
+              Learn how short breaks refresh your mind and boost focus.<br />
+              It's time to recharge smarter, not harder.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <form class="contact__form" id="contactForm">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">Send</button>
+        </form>
+        <div class="contact__thankyou" id="thankYouMsg" style="display: none">
+          Thank you for reaching out!
+        </div>
+      </section>
+    </div>
+    <script>
+      // Simple contact form handler
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          document.getElementById("contactForm").style.display = "none";
+          document.getElementById("thankYouMsg").style.display = "block";
+        });
+    </script>
+  </body>
+</html>
